@@ -4,6 +4,7 @@ Hi! I'm **Ricky Zhang**, and I currently attend the University of Florida as a C
 
 ### What I'm Working On
 - A **Realistic Beyblade Game** – can you believe one doesn't exist? Current physics engines aren't accurate enough for high-speed collisions and movement.
+- A NextJS/Medusa ecommerce template? Maybe just a phase though.
 - Feel free to reach out if you're interested in contributing! @rickroyale (Discord)
 
 ### Interests & Skills

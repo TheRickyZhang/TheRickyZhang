@@ -51,17 +51,26 @@ def main():
     print(f"Fetching repos for {username}...")
     repos = get_repos(username, token)
     
-    # IMPORTANT: Define excluded languages here:
+    # IMPORTANT: Define excluded things here:
     excluded_languages = {"MDX", "Makefile", "CMake", "HTML", "CSS"}
+    partially_excluded_repos = {"TheRickyZhang/CompetitiveProgramming"}
     
     aggregated = {}
     for repo in repos:
-        print(f"Processing {repo}...")
-        stats = get_language_stats(repo, token)
-        for lang, count in stats.items():
-            if lang in excluded_languages:
-                continue
-            aggregated[lang] = aggregated.get(lang, 0) + count
+        if repo in partially_excluded_repos:
+            print(f"Processing partially excluded repo {repo} (1/20 contribution)...")
+            stats = get_language_stats(repo, token)
+            for lang, count in stats.items():
+                if lang in excluded_languages:
+                    continue
+                aggregated[lang] = aggregated.get(lang, 0) + (count / 20)
+        else:
+            print(f"Processing {repo}...")
+            stats = get_language_stats(repo, token)
+            for lang, count in stats.items():
+                if lang in excluded_languages:
+                    continue
+                aggregated[lang] = aggregated.get(lang, 0) + count
 
     total_bytes = sum(aggregated.values())
     

@@ -11,7 +11,5 @@ Hi! I'm **Ricky Zhang**, and I currently attend the University of Florida as a C
 
 ![Profile views](https://komarev.com/ghpvc/?username=TheRickyZhang&color=blue)
 
-<!--START_LANGUAGE_STATS-->
-
-<!--END_LANGUAGE_STATS-->
+![Top Langs (Only publicly owned repos)](https://github-readme-stats.vercel.app/api/top-langs/?username=TheRickyZhang&layout=compact&langs_count=10&exclude_repo=usaco_guide&hide=HTML,CSS,Makefile,Objective-C,Objective-C%2B%2B,Shell,Powershell,Autohotkey)
 

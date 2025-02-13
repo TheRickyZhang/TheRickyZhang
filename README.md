@@ -10,3 +10,8 @@ Hi! I'm **Ricky Zhang**, and I currently attend the University of Florida as a C
 - Everything. Kinda. Specializing in algorithmic C++ and web development.
 
 ![Profile views](https://komarev.com/ghpvc/?username=TheRickyZhang&color=blue)
+
+<!--START_LANGUAGE_STATS-->
+
+<!--END_LANGUAGE_STATS-->
+

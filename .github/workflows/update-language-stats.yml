@@ -2,6 +2,7 @@ name: Update Commit Language Stats
 
 permissions:
   contents: write
+
 on:
   schedule:
     - cron: "0 0 * * *"  # Runs daily at midnight UTC
@@ -28,9 +29,12 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - name: Commit & Push Changes
+        env:
+          PAT: ${{ secrets.MY_PAT }}
         run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
+          git config --global user.name "Ricky"
+          git config --global user.email "rickyzhang196@outlook.com"
+          git remote set-url origin https://$PAT@github.com/TheRickyZhang/TheRickyZhang.git
           git add README.md
           git commit -m "Update commit-based language stats" || echo "No changes to commit"
           git push

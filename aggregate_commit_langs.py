@@ -3,7 +3,7 @@ import os
 import sys
 import re
 
-# Use the GitHub Search API to find repositories where you committed.
+# Use GitHub Search API to find repositories where I committed. (Note: not the same as my commits, but what I am engaging with)
 def get_repos(username, token):
     headers = {
         'Authorization': f'token {token}',
@@ -29,11 +29,10 @@ def get_repos(username, token):
         for item in items:
             repos.add(item['repository']['full_name'])
         page += 1
-        if page > 5:  # Limit pages for demo purposes
+        if page > 10:  # Limit pages just in case
             break
     return list(repos)
 
-# For each repository, fetch its language stats.
 def get_language_stats(repo, token):
     headers = {'Authorization': f'token {token}'}
     url = f'https://api.github.com/repos/{repo}/languages'
@@ -52,14 +51,18 @@ def main():
     print(f"Fetching repos for {username}...")
     repos = get_repos(username, token)
     
+    # IMPORTANT: Define excluded languages here:
+    excluded_languages = {"MDX", "Makefile", "CMake", "HTML", "CSS"}
+    
     aggregated = {}
     for repo in repos:
         print(f"Processing {repo}...")
         stats = get_language_stats(repo, token)
         for lang, count in stats.items():
+            if lang in excluded_languages:
+                continue
             aggregated[lang] = aggregated.get(lang, 0) + count
 
-    # Calculate total bytes for percentage calculations.
     total_bytes = sum(aggregated.values())
     
     # Create markdown table for top 10 languages.

@@ -63,7 +63,7 @@ def main():
             for lang, count in stats.items():
                 if lang in excluded_languages:
                     continue
-                aggregated[lang] = aggregated.get(lang, 0) + (count / 20)
+                aggregated[lang] = aggregated.get(lang, 0) + (count // 20)
         else:
             print(f"Processing {repo}...")
             stats = get_language_stats(repo, token)

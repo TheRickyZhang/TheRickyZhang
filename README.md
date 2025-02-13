@@ -13,3 +13,6 @@ Hi! I'm **Ricky Zhang**, and I currently attend the University of Florida as a C
 
 ![Top Langs (Only publicly owned repos)](https://github-readme-stats.vercel.app/api/top-langs/?username=TheRickyZhang&layout=compact&langs_count=10&exclude_repo=usaco_guide&hide=HTML,CSS,Makefile,Objective-C,Objective-C%2B%2B,Shell,Powershell,Autohotkey)
 
+<!--START_COMMIT_LANG_STATS-->
+
+<!--END_COMMIT_LANG_STATS-->

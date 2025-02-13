@@ -12,7 +12,7 @@ def get_repos(username, token):
     repos = set()
     page = 1
     while True:
-        url = f'https://api.github.com/search/commits'
+        url = 'https://api.github.com/search/commits'
         params = {
             'q': f'author:{username}',
             'page': page,
@@ -59,10 +59,17 @@ def main():
         for lang, count in stats.items():
             aggregated[lang] = aggregated.get(lang, 0) + count
 
-    # Create markdown for the aggregated stats.
+    # Calculate total bytes for percentage calculations.
+    total_bytes = sum(aggregated.values())
+    
+    # Create markdown table for top 10 languages.
+    top_langs = sorted(aggregated.items(), key=lambda x: x[1], reverse=True)[:10]
     output_lines = ["## Commit-Based Language Stats", ""]
-    for lang, count in sorted(aggregated.items(), key=lambda x: x[1], reverse=True):
-        output_lines.append(f"- **{lang}**: {count} bytes")
+    output_lines.append("| Language | Bytes | Percentage |")
+    output_lines.append("| --- | ---:| ---:|")
+    for lang, count in top_langs:
+        perc = (count / total_bytes * 100) if total_bytes > 0 else 0
+        output_lines.append(f"| {lang} | {count:,} | {perc:.2f}% |")
     new_section = "\n".join(output_lines)
 
     # Update README.md between markers.

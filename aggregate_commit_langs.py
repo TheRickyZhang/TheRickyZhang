@@ -52,7 +52,7 @@ def main():
     repos = get_repos(username, token)
     
     # IMPORTANT: Define excluded things here:
-    excluded_languages = {"MDX", "Makefile", "CMake", "HTML", "CSS"}
+    excluded_languages = {"MDX", "Makefile", "CMake", "CSS"}
     partially_excluded_repos = {"TheRickyZhang/CompetitiveProgramming"}
     
     aggregated = {}

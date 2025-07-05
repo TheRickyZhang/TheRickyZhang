@@ -3,11 +3,10 @@
 Hi! I'm **Ricky Zhang**, and I currently attend the University of Florida as a Computer Science/Math Major. I like building things and solving problems. Yeaaah.
 
 ### What I'm Working On
-- A realistic Beyblade game – can you believe one doesn't exist? Current physics engines just aren't suited for simulating the high-speed collisions and movementp accurately.
-- An all-in-one application for suggesting shortcuts and workflows reactively to improve efficiency.
+- things
 
 ### Interests & Skills
-- Low-level/Web development, Fintech, Ergonomics
+- Yes
 
 ![Profile views](https://komarev.com/ghpvc/?username=TheRickyZhang&color=blue)
 

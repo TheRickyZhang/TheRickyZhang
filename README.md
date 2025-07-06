@@ -15,7 +15,7 @@ Hi! I'm **Ricky Zhang**, and I currently attend the University of Florida as a C
 
 | Language | Bytes | Percentage |
 | --- | ---:| ---:|
-| C++ | 16,553,647 | 48.29% |
+| C++ | 16,553,683 | 48.29% |
 | C | 8,818,942 | 25.73% |
 | HTML | 3,201,964 | 9.34% |
 | TypeScript | 2,301,043 | 6.71% |

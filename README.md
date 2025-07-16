@@ -3,7 +3,7 @@
 Hi! I'm **Ricky Zhang**, and I currently attend the University of Florida as a Computer Science/Math Major. I like building things and solving problems. Yeaaah.
 
 ### What I'm Working On
-- things
+- Exciting (?) things
 
 ### Interests & Skills
 - Yes

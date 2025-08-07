@@ -1,12 +1,11 @@
-## Welcome to my GitHub
-
-Hi! I'm **Ricky Zhang**, and I currently attend the University of Florida as a Computer Science/Math Major. I like building things and solving problems. Yeaaah.
+Hi! I'm **Ricky Zhang**, and I currently attend the University of Florida as a Computer Science/Math Major. I like building things and solving problems. I think. Yeaaah.
 
 ### What I'm Working On
 - Exciting (?) things
 
 ### Interests & Skills
 - Yes
+- Decreasing entropy
 
 ![Profile views](https://komarev.com/ghpvc/?username=TheRickyZhang&color=blue)
 

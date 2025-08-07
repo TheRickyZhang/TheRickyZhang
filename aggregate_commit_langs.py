@@ -108,4 +108,21 @@ def main():
     out=["### Commit-Based Language Stats",""]
     out.append("| Language    | Lines   | Percentage |")
     out.append("| ----------- | ------: | ---------: |")
-    for lang,c in top1
+    for lang,c in top10:
+        pct=c/total*100
+        out.append(f"| {lang:<11} | {c:>6,} | {pct:>9.2f}% |")
+    block="\n".join(out)
+
+    # inject into README.md
+    txt=open("README.md","r",encoding="utf-8").read()
+    patched = re.sub(
+        r'<!--START_COMMIT_LANG_STATS-->.*<!--END_COMMIT_LANG_STATS-->',
+        f'<!--START_COMMIT_LANG_STATS-->\n{block}\n<!--END_COMMIT_LANG_STATS-->',
+        txt, flags=re.DOTALL
+    )
+    open("README.md","w",encoding="utf-8").write(patched)
+
+    print("\nREADME.md updated with new language stats.")
+
+if __name__=="__main__":
+    main()

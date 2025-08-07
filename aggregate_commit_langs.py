@@ -52,7 +52,7 @@ def main():
     repos = get_repos(username, token)
     
     # IMPORTANT: Define excluded things here:
-    excluded_languages = {"MDX", "Makefile", "CMake", "CSS"}
+    excluded_languages = {"MDX", "Makefile", "CMake", "CSS", "HTML"}
     partially_excluded_repos = {"TheRickyZhang/CompetitiveProgramming"}
     
     aggregated = {}
@@ -76,7 +76,7 @@ def main():
     
     # Create markdown table for top 10 languages.
     top_langs = sorted(aggregated.items(), key=lambda x: x[1], reverse=True)[:10]
-    output_lines = ["## Commit-Based Language Stats", ""]
+    output_lines = ["### Commit-Based Language Stats", ""]
     output_lines.append("| Language | Bytes | Percentage |")
     output_lines.append("| --- | ---:| ---:|")
     for lang, count in top_langs:

@@ -136,7 +136,7 @@ def main():
 
     # debug: Markdown table of largest repo per language
     print("\n# Largest repo contributor per language:")
-    print("| Language    | Lines     | Percentage | Repo |")
+    print("| Language    | Lines     | Percentage | Featured Repo |")
     print("| ----------- | --------: | ---------: | ---- |")
     for lang, cnt in top10:
         repo, c = lang_repo[lang].most_common(1)[0]

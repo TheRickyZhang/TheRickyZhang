@@ -18,7 +18,7 @@ Hi! I'm **Ricky Zhang**, and I currently attend the University of Florida as a C
 | JS/TS       | 129,574 |     26.08% | [UF-SASE-Website](https://github.com/ufsasewebmaster/UF-SASE-Website) |
 | Java        | 23,818 |      4.79% | [EmberLang](https://github.com/TheRickyZhang/EmberLang) |
 | Astro       |  8,771 |      1.77% | [Astro-Portfolio-Workshop](https://github.com/TheRickyZhang/Astro-Portfolio-Workshop) |
-| Python      |  3,990 |      0.80% | [SlidingTiles](https://github.com/TheRickyZhang/SlidingTiles) |
+| Python      |  3,991 |      0.80% | [SlidingTiles](https://github.com/TheRickyZhang/SlidingTiles) |
 | Shell       |    694 |      0.14% | [BattleBeyz_Prototype](https://github.com/TheRickyZhang/BattleBeyz_Prototype) |
 | Swift       |    591 |      0.12% | [hackabull](https://github.com/AnthonyYao7/hackabull) |
 | Kotlin      |    165 |      0.03% |  |

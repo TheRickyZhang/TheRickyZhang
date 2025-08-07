@@ -1,45 +1,70 @@
-import requests
 import os
 import sys
+import time
+import requests
 import re
+from collections import Counter
 
-# Use GitHub Search API to find repositories where I committed. (Note: not the same as my commits, but what I am engaging with)
-def get_repos(username, token):
+# Configuration
+CACHE_FILE = '.last_seen_sha'
+EXCLUDED_EXTS = {'mdx', 'css', 'html', 'cmake'}
+EXCLUDED_FILENAMES = {'Makefile', 'CMakeLists.txt'}
+MAX_PAGES = 10
+PER_PAGE = 100
+
+def read_last_seen():
+    try:
+        return open(CACHE_FILE, 'r', encoding='utf-8').read().strip()
+    except FileNotFoundError:
+        return None
+
+def write_last_seen(sha):
+    with open(CACHE_FILE, 'w', encoding='utf-8') as f:
+        f.write(sha)
+
+def get_commits(username, token, last_seen=None):
     headers = {
         'Authorization': f'token {token}',
-        'Accept': 'application/vnd.github.cloak-preview'  # Needed for commit search
+        'Accept':        'application/vnd.github.cloak-preview'
     }
-    repos = set()
-    page = 1
-    while True:
-        url = 'https://api.github.com/search/commits'
+    commits = []
+    stop = False
+
+    for page in range(1, MAX_PAGES + 1):
         params = {
-            'q': f'author:{username}',
-            'page': page,
-            'per_page': 100
+            'q':        f'author:{username}',
+            'page':     page,
+            'per_page': PER_PAGE
         }
-        response = requests.get(url, headers=headers, params=params)
+        response = requests.get('https://api.github.com/search/commits',
+                                headers=headers, params=params)
         if response.status_code != 200:
             print("Error fetching commits:", response.json())
             break
-        data = response.json()
-        items = data.get('items', [])
+
+        items = response.json().get('items', [])
         if not items:
             break
-        for item in items:
-            repos.add(item['repository']['full_name'])
-        page += 1
-        if page > 10:  # Limit pages just in case
-            break
-    return list(repos)
 
-def get_language_stats(repo, token):
-    headers = {'Authorization': f'token {token}'}
-    url = f'https://api.github.com/repos/{repo}/languages'
-    response = requests.get(url, headers=headers)
-    if response.status_code == 200:
-        return response.json()
-    return {}
+        for it in items:
+            sha = it['sha']
+            if sha == last_seen:
+                stop = True
+                break
+            commits.append((it['repository']['full_name'], sha))
+
+        if stop:
+            break
+        time.sleep(0.2)
+
+    return commits
+
+def ext_of(path):
+    fn = path.rsplit('/', 1)[-1]
+    if fn in EXCLUDED_FILENAMES or '.' not in fn:
+        return None
+    e = fn.rsplit('.', 1)[1].lower()
+    return None if e in EXCLUDED_EXTS else e
 
 def main():
     username = sys.argv[1] if len(sys.argv) > 1 else 'TheRickyZhang'
@@ -47,58 +72,56 @@ def main():
     if not token:
         print("GH_TOKEN not set")
         sys.exit(1)
-    
-    print(f"Fetching repos for {username}...")
-    repos = get_repos(username, token)
-    
-    # IMPORTANT: Define excluded things here:
-    excluded_languages = {"MDX", "Makefile", "CMake", "CSS", "HTML"}
-    partially_excluded_repos = {"TheRickyZhang/CompetitiveProgramming"}
-    
-    aggregated = {}
-    for repo in repos:
-        if repo in partially_excluded_repos:
-            print(f"Processing partially excluded repo {repo} (1/20 contribution)...")
-            stats = get_language_stats(repo, token)
-            for lang, count in stats.items():
-                if lang in excluded_languages:
-                    continue
-                aggregated[lang] = aggregated.get(lang, 0) + (count // 20)
-        else:
-            print(f"Processing {repo}...")
-            stats = get_language_stats(repo, token)
-            for lang, count in stats.items():
-                if lang in excluded_languages:
-                    continue
-                aggregated[lang] = aggregated.get(lang, 0) + count
 
-    total_bytes = sum(aggregated.values())
-    
-    # Create markdown table for top 10 languages.
-    top_langs = sorted(aggregated.items(), key=lambda x: x[1], reverse=True)[:10]
+    last = read_last_seen()
+    print(f"Fetching commits for {username}… (since {last or 'the very beginning'})")
+    commits = get_commits(username, token, last)
+    print(f"→ found {len(commits)} commits")
+
+    if commits:
+        # cache the newest SHA for next run
+        _, newest_sha = commits[0]
+        write_last_seen(newest_sha)
+
+    tally = Counter()
+    for repo, sha in commits:
+        print(f"Processing {repo}@{sha[:7]}…")
+        r = requests.get(
+            f'https://api.github.com/repos/{repo}/commits/{sha}',
+            headers={'Authorization': f'token {token}'}
+        )
+        if r.status_code != 200:
+            continue
+        for f in r.json().get('files', []):
+            e = ext_of(f['filename'])
+            if e:
+                tally[e] += f.get('additions', 0)
+        time.sleep(0.1)
+
+    total = sum(tally.values()) or 1
+    top10 = tally.most_common(10)
+
+    # build markdown block
     output_lines = ["### Commit-Based Language Stats", ""]
     output_lines.append("| Language | Bytes | Percentage |")
     output_lines.append("| --- | ---:| ---:|")
-    for lang, count in top_langs:
-        perc = (count / total_bytes * 100) if total_bytes > 0 else 0
-        output_lines.append(f"| {lang} | {count:,} | {perc:.2f}% |")
+    for lang, cnt in top10:
+        pct = cnt / total * 100
+        output_lines.append(f"| {lang} | {cnt:,} | {pct:.2f}% |")
     new_section = "\n".join(output_lines)
 
-    # Update README.md between markers.
+    # inject into README.md
     readme_path = "README.md"
-    with open(readme_path, "r", encoding="utf-8") as f:
-        readme = f.read()
-
+    readme = open(readme_path, "r", encoding="utf-8").read()
     new_readme = re.sub(
         r'<!--START_COMMIT_LANG_STATS-->.*<!--END_COMMIT_LANG_STATS-->',
         f'<!--START_COMMIT_LANG_STATS-->\n{new_section}\n<!--END_COMMIT_LANG_STATS-->',
         readme,
         flags=re.DOTALL
     )
-
     with open(readme_path, "w", encoding="utf-8") as f:
         f.write(new_readme)
-    
+
     print("README.md updated with new language stats.")
 
 if __name__ == "__main__":

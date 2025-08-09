@@ -30,17 +30,11 @@ GROUPS = {
 # reverse map: extension -> language
 EXT_TO_LANG = {ext: lang for lang, exts in GROUPS.items() for ext in exts}
 
-# ───── FEATURED REPOS OVERRIDES ─────
-# add more languages or repos here as needed:
-FEATURED_REPOS = {
-    'C/C++': [
-        ('TheRickyZhang/BattleBeyz', 'BattleBeyz'),
-        ('TheRickyZhang/CompetitiveProgramming', 'CompetitiveProgramming'),
-    ],
-    'JS/TS': [
-        ('ufsasewebmaster/UF-SASE-Website', 'UF-SASE-Website'),
-    ],
-}
+# ───── SPECIAL CPP REPO ORDER ─────
+CUSTOM_CPP_REPOS = [
+    ('TheRickyZhang/BattleBeyz', 'BattleBeyz'),
+    ('TheRickyZhang/CompetitiveProgramming', 'CompetitiveProgramming'),
+]
 
 # ───── CACHE HELPERS ─────
 def read_last_seen():
@@ -146,40 +140,50 @@ def main():
     total = sum(lang_tally.values()) or 1
     top10 = lang_tally.most_common(10)
 
-    # debug: Markdown table of largest repo contributor per language
+    # debug: Markdown table of largest repo per language
     print("\n# Largest repo contributor per language:")
     print("| Language    | Lines     | Percentage | Featured Repo |")
     print("| ----------- | --------: | ---------: | ---- |")
-    for lang, _ in top10:
-        # handle featured overrides
-        if lang in FEATURED_REPOS:
-            c = sum(lang_repo[lang].get(full, 0) for full, _ in FEATURED_REPOS[lang])
-            pct = c / total * 100
-            links = [f"[{name}](https://github.com/{full})" for full, name in FEATURED_REPOS[lang]
-                     if lang_repo[lang].get(full, 0) > MIN_LINES_THRESHOLD]
-            repo_cell = ', '.join(links)
-        else:
+    processed_langs = set()
+    for lang, cnt in top10:
+        if lang == 'C/C++':
+            for full_repo, name in CUSTOM_CPP_REPOS:
+                c = lang_repo['C/C++'].get(full_repo, 0)
+                pct = c / total * 100
+                repo_cell = f"[{name}](https://github.com/{full_repo})" if c > MIN_LINES_THRESHOLD else ''
+                print(f"| C/C++       | {c:>8,} | {pct:>9.2f}% | {repo_cell} |")
+            processed_langs.add('C/C++')
+        elif lang not in processed_langs:
             repo, c = lang_repo[lang].most_common(1)[0]
-            pct = lang_tally[lang] / total * 100
-            repo_cell = '' if lang_tally[lang] <= MIN_LINES_THRESHOLD else f"[{repo.split('/',1)[1]}](https://github.com/{repo})"
-        print(f"| {lang:<11} | {c:>8,} | {pct:>9.2f}% | {repo_cell} |")
+            if lang == 'JS/TS':
+                repo = 'ufsasewebmaster/UF-SASE-Website'
+                c = lang_repo[lang].get(repo, c)
+            pct = cnt / total * 100
+            repo_cell = '' if cnt <= MIN_LINES_THRESHOLD else f"[{repo.split('/',1)[1]}](https://github.com/{repo})"
+            print(f"| {lang:<11} | {c:>8,} | {pct:>9.2f}% | {repo_cell} |")
 
-    # build main markdown stats section
+    # build main markdown stats
     output = ["### Normalized Commit Language Stats", ""]
     output.append("| Language    | Lines   | Percentage | Repo |")
     output.append("| ----------- | ------: | ---------: | ---- |")
+    processed_langs = set()
     for lang, cnt in top10:
-        if lang in FEATURED_REPOS:
-            c = sum(lang_repo[lang].get(full, 0) for full, _ in FEATURED_REPOS[lang])
-            pct = c / total * 100
-            links = [f"[{name}](https://github.com/{full})" for full, name in FEATURED_REPOS[lang]
-                     if lang_repo[lang].get(full, 0) > MIN_LINES_THRESHOLD]
-            repo_cell = ', '.join(links)
-        else:
-            repo = 'ufsasewebmaster/UF-SASE-Website' if lang == 'JS/TS' else lang_repo[lang].most_common(1)[0][0]
+        if lang == 'C/C++':
+            for full_repo, name in CUSTOM_CPP_REPOS:
+                c = lang_repo['C/C++'].get(full_repo, 0)
+                pct = c / total * 100
+                repo_cell = f"[{name}](https://github.com/{full_repo})" if c > MIN_LINES_THRESHOLD else ''
+                output.append(f"| C/C++       | {c:>6,} | {pct:>9.2f}% | {repo_cell} |")
+            processed_langs.add('C/C++')
+        elif lang not in processed_langs:
+            if lang == 'JS/TS':
+                repo = 'ufsasewebmaster/UF-SASE-Website'
+            else:
+                repo = lang_repo[lang].most_common(1)[0][0]
             pct = cnt / total * 100
             repo_cell = '' if cnt <= MIN_LINES_THRESHOLD else f"[{repo.split('/',1)[1]}](https://github.com/{repo})"
-        output.append(f"| {lang:<11} | {c:>6,} | {pct:>9.2f}% | {repo_cell} |")
+            output.append(f"| {lang:<11} | {cnt:>6,} | {pct:>9.2f}% | {repo_cell} |")
+
     new_section = "\n".join(output)
 
     # inject into README.md

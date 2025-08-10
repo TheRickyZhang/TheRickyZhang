@@ -14,13 +14,14 @@ Hi! I'm **Ricky Zhang**, and I currently attend the University of Florida as a C
 
 | Language    | Lines   | Percentage | Repo |
 | ----------- | ------: | ---------: | ---- |
-| C/C++       | 274,881 |     56.10% | [BattleBeyz](https://github.com/TheRickyZhang/BattleBeyz), [CompetitiveProgramming](https://github.com/TheRickyZhang/CompetitiveProgramming) |
-| JS/TS       | 10,989 |      2.24% | [UF-SASE-Website](https://github.com/ufsasewebmaster/UF-SASE-Website) |
-| Java        | 10,989 |      4.86% | [EmberLang](https://github.com/TheRickyZhang/EmberLang) |
-| Astro       | 10,989 |      1.79% | [Astro-Portfolio-Workshop](https://github.com/TheRickyZhang/Astro-Portfolio-Workshop) |
-| Python      | 10,989 |      0.83% | [SlidingTiles](https://github.com/TheRickyZhang/SlidingTiles) |
-| Shell       | 10,989 |      0.14% | [BattleBeyz_Prototype](https://github.com/TheRickyZhang/BattleBeyz_Prototype) |
-| Swift       | 10,989 |      0.12% | [hackabull](https://github.com/AnthonyYao7/hackabull) |
-| Kotlin      | 10,989 |      0.03% |  |
-| Rust        | 10,989 |      0.00% |  |
+| C/C++       | 138,067 |     28.17% | [BattleBeyz](https://github.com/TheRickyZhang/BattleBeyz) |
+| C/C++       | 136,814 |     27.92% | [CompetitiveProgramming](https://github.com/TheRickyZhang/CompetitiveProgramming) |
+| JS/TS       | 129,574 |     26.44% | [UF-SASE-Website](https://github.com/ufsasewebmaster/UF-SASE-Website) |
+| Java        | 23,818 |      4.86% | [EmberLang](https://github.com/TheRickyZhang/EmberLang) |
+| Astro       |  8,771 |      1.79% | [Astro-Portfolio-Workshop](https://github.com/TheRickyZhang/Astro-Portfolio-Workshop) |
+| Python      |  4,102 |      0.84% | [SlidingTiles](https://github.com/TheRickyZhang/SlidingTiles) |
+| Shell       |    694 |      0.14% | [BattleBeyz_Prototype](https://github.com/TheRickyZhang/BattleBeyz_Prototype) |
+| Swift       |    591 |      0.12% | [hackabull](https://github.com/AnthonyYao7/hackabull) |
+| Kotlin      |    165 |      0.03% |  |
+| Rust        |      3 |      0.00% |  |
 <!--END_COMMIT_LANG_STATS-->

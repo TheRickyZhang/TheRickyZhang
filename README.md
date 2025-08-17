@@ -14,11 +14,11 @@ Hi! I'm **Ricky Zhang**, and I currently attend the University of Florida as a C
 
 | Language    | Lines   | Percentage | Featured Repo |
 | ----------- | ------: | ---------: | ---- |
-| C/C++       | 282,209 |     56.73% | [BattleBeyz](https://github.com/TheRickyZhang/BattleBeyz), [CompetitiveProgramming](https://github.com/TheRickyZhang/CompetitiveProgramming) |
-| JS/TS       | 129,574 |     26.05% | [UF-SASE-Website](https://github.com/ufsasewebmaster/UF-SASE-Website) |
-| Java        | 23,818 |      4.79% | [EmberLang](https://github.com/TheRickyZhang/EmberLang) |
+| C/C++       | 283,040 |     56.80% | [BattleBeyz](https://github.com/TheRickyZhang/BattleBeyz), [CompetitiveProgramming](https://github.com/TheRickyZhang/CompetitiveProgramming) |
+| JS/TS       | 129,574 |     26.00% | [UF-SASE-Website](https://github.com/ufsasewebmaster/UF-SASE-Website) |
+| Java        | 23,818 |      4.78% | [EmberLang](https://github.com/TheRickyZhang/EmberLang) |
 | Astro       |  8,771 |      1.76% | [Astro-Portfolio-Workshop](https://github.com/TheRickyZhang/Astro-Portfolio-Workshop) |
-| Python      |  4,154 |      0.84% | [SlidingTiles](https://github.com/TheRickyZhang/SlidingTiles) |
+| Python      |  4,169 |      0.84% | [SlidingTiles](https://github.com/TheRickyZhang/SlidingTiles) |
 | Shell       |    694 |      0.14% | [BattleBeyz_Prototype](https://github.com/TheRickyZhang/BattleBeyz_Prototype) |
 | Swift       |    591 |      0.12% | [hackabull](https://github.com/AnthonyYao7/hackabull) |
 | Kotlin      |    165 |      0.03% |  |

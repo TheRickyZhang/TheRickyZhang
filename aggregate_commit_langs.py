@@ -28,6 +28,7 @@ GROUPS = {
     'Scala':   {'scala'},
     'Shell':   {'sh','bash','zsh','ksh'},
     'Swift':   {'swift'},
+    'Typst':   {'typ'},
 }
 
 # reverse map: extension -> language

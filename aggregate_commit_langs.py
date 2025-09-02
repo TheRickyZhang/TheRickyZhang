@@ -11,20 +11,23 @@ MIN_LINES_THRESHOLD = 500
 
 # Only these languages (extensions) will be counted:
 GROUPS = {
-    'C/C++':   {'c','cpp','cc','cxx','h','hh','hpp','hxx'},
-    'Python':  {'py'},
-    'Java':    {'java'},
-    'JS/TS':   {'js','jsx','ts','tsx'},
-    'Go':      {'go'},
-    'Rust':    {'rs'},
-    'Ruby':    {'rb'},
-    'PHP':     {'php'},
-    'Kotlin':  {'kt','kts'},
-    'Swift':   {'swift'},
-    'C#':      {'cs'},
-    'Scala':   {'scala'},
-    'Shell':   {'sh','bash'},
     'Astro':   {'astro'},
+    'C#':      {'cs'},
+    'C/C++':   {'c','cpp','cc','cxx','h','hh','hpp','hxx', 'tpp'},
+    'Elixir':  {'ex','exs'},
+    'Go':      {'go'},
+    'JS/TS':   {'js','jsx','ts','tsx', 'css'},
+    'Java':    {'java'},
+    'Kotlin':  {'kt','kts'},
+    'Lua':     {'lua'},
+    'PHP':     {'php'},
+    'PowerShell': {'ps1','psm1','psd1'},
+    'Python':  {'py'},
+    'Ruby':    {'rb'},
+    'Rust':    {'rs'},
+    'Scala':   {'scala'},
+    'Shell':   {'sh','bash','zsh','ksh'},
+    'Swift':   {'swift'},
 }
 
 # reverse map: extension -> language
@@ -47,6 +50,7 @@ def read_last_seen():
 def write_last_seen(sha):
     with open(CACHE_FILE, 'w', encoding='utf-8') as f:
         f.write(sha)
+
 
 # ───── FETCH COMMITS ─────
 def get_commits(user, token, last=None):
@@ -146,6 +150,7 @@ def main():
     print("| ----------- | --------: | ---------: | ---- |")
     processed_langs = set()
     for lang, cnt in top10:
+        # Hardcode certain repos to ensure they are displayed (may not necessarily have most, but most in-depth use)
         if lang == 'C/C++':
             cpp_total = sum(lang_repo['C/C++'].get(repo, 0) for repo, _ in CUSTOM_CPP_REPOS)
             pct = cpp_total / total * 100

@@ -12,14 +12,15 @@ Hi! I'm **Ricky Zhang**, and I currently attend the University of Florida as a C
 <!--START_COMMIT_LANG_STATS-->
 ### Normalized Commit Language Stats
 
-| Language    | Lines   | Percentage | Featured Repo |
+| Language    | Lines   | Percentage | Repo |
 | ----------- | ------: | ---------: | ---- |
-| C/C++       | 285,967 |     56.97% | [BattleBeyz](https://github.com/TheRickyZhang/BattleBeyz), [CompetitiveProgramming](https://github.com/TheRickyZhang/CompetitiveProgramming) |
-| JS/TS       | 130,223 |     25.94% | [UF-SASE-Website](https://github.com/ufsasewebmaster/UF-SASE-Website) |
-| Java        | 23,818 |      4.74% | [EmberLang](https://github.com/TheRickyZhang/EmberLang) |
-| Astro       |  8,771 |      1.75% | [Astro-Portfolio-Workshop](https://github.com/TheRickyZhang/Astro-Portfolio-Workshop) |
-| Python      |  4,169 |      0.83% | [SlidingTiles](https://github.com/TheRickyZhang/SlidingTiles) |
-| Shell       |    828 |      0.16% | [BattleBeyz_Prototype](https://github.com/TheRickyZhang/BattleBeyz_Prototype) |
+| C/C++       | 138,067 |     28.17% | [BattleBeyz](https://github.com/TheRickyZhang/BattleBeyz) |
+| C/C++       | 136,814 |     27.92% | [CompetitiveProgramming](https://github.com/TheRickyZhang/CompetitiveProgramming) |
+| JS/TS       | 129,574 |     26.44% | [UF-SASE-Website](https://github.com/ufsasewebmaster/UF-SASE-Website) |
+| Java        | 23,818 |      4.86% | [EmberLang](https://github.com/TheRickyZhang/EmberLang) |
+| Astro       |  8,771 |      1.79% | [Astro-Portfolio-Workshop](https://github.com/TheRickyZhang/Astro-Portfolio-Workshop) |
+| Python      |  4,102 |      0.84% | [SlidingTiles](https://github.com/TheRickyZhang/SlidingTiles) |
+| Shell       |    694 |      0.14% | [BattleBeyz_Prototype](https://github.com/TheRickyZhang/BattleBeyz_Prototype) |
 | Swift       |    591 |      0.12% | [hackabull](https://github.com/AnthonyYao7/hackabull) |
 | Kotlin      |    165 |      0.03% |  |
 | Rust        |      3 |      0.00% |  |

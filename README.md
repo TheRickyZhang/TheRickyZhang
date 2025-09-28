@@ -14,14 +14,14 @@ Hi! I'm **Ricky Zhang**, and I currently attend the University of Florida as a C
 
 | Language    | Lines   | Percentage | Featured Repo |
 | ----------- | ------: | ---------: | ---- |
-| C/C++       | 290,266 |     55.78% | [BattleBeyz](https://github.com/TheRickyZhang/BattleBeyz), [CompetitiveProgramming](https://github.com/TheRickyZhang/CompetitiveProgramming) |
-| JS/TS       | 140,492 |     27.00% | [UF-SASE-Website](https://github.com/ufsasewebmaster/UF-SASE-Website) |
-| Java        | 23,818 |      4.58% | [EmberLang](https://github.com/TheRickyZhang/EmberLang) |
-| Astro       |  8,771 |      1.69% | [Astro-Portfolio-Workshop](https://github.com/TheRickyZhang/Astro-Portfolio-Workshop) |
-| Python      |  4,171 |      0.80% | [SlidingTiles](https://github.com/TheRickyZhang/SlidingTiles) |
-| Shell       |  1,689 |      0.32% | [Bootstrap](https://github.com/TheRickyZhang/Bootstrap) |
-| Lua         |  1,560 |      0.30% | [Bootstrap](https://github.com/TheRickyZhang/Bootstrap) |
+| C/C++       | 294,805 |     57.85% | [BattleBeyz](https://github.com/TheRickyZhang/BattleBeyz), [CompetitiveProgramming](https://github.com/TheRickyZhang/CompetitiveProgramming) |
+| JS/TS       | 126,820 |     24.89% | [UF-SASE-Website](https://github.com/ufsasewebmaster/UF-SASE-Website) |
+| Java        | 23,818 |      4.67% | [EmberLang](https://github.com/TheRickyZhang/EmberLang) |
+| Astro       |  8,771 |      1.72% | [Astro-Portfolio-Workshop](https://github.com/TheRickyZhang/Astro-Portfolio-Workshop) |
+| Python      |  4,029 |      0.79% | [SlidingTiles](https://github.com/TheRickyZhang/SlidingTiles) |
+| Shell       |  2,019 |      0.40% | [Bootstrap](https://github.com/TheRickyZhang/Bootstrap) |
+| Lua         |  1,817 |      0.36% | [Bootstrap](https://github.com/TheRickyZhang/Bootstrap) |
 | PowerShell  |  1,069 |      0.21% | [ConfigEfficiency](https://github.com/TheRickyZhang/ConfigEfficiency) |
-| Swift       |    591 |      0.11% | [hackabull](https://github.com/AnthonyYao7/hackabull) |
+| Swift       |    591 |      0.12% | [hackabull](https://github.com/AnthonyYao7/hackabull) |
 | Kotlin      |    165 |      0.03% |  |
 <!--END_COMMIT_LANG_STATS-->

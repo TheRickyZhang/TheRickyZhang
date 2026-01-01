@@ -107,10 +107,10 @@ def main():
     if commits:
         write_last_seen(commits[0][1])
 
-    # tally lines per language and per-extension unknowns
-    lang_tally = Counter()
-    lang_repo  = defaultdict(Counter)
-    ext_tally  = Counter()
+    # track net changes per file (additions - deletions)
+    # key: (repo, filename) -> {'adds': int, 'dels': int}
+    file_changes = defaultdict(lambda: {'adds': 0, 'dels': 0})
+    ext_file_changes = defaultdict(lambda: {'adds': 0, 'dels': 0})  # for unknown extensions
 
     processed = 0
     for repo, sha in commits:
@@ -126,18 +126,39 @@ def main():
         for f in files:
             ext = ext_of(f['filename'])
             adds = f.get('additions', 0)
+            dels = f.get('deletions', 0)
             if not ext:
                 continue
             if ext in EXT_TO_LANG:
-                lang = EXT_TO_LANG[ext]
-                lang_tally[lang] += adds
-                lang_repo[lang][repo] += adds
+                key = (repo, f['filename'])
+                file_changes[key]['adds'] += adds
+                file_changes[key]['dels'] += dels
             else:
-                ext_tally[ext] += adds
+                key = (ext, repo, f['filename'])
+                ext_file_changes[key]['adds'] += adds
+                ext_file_changes[key]['dels'] += dels
         processed += 1
         time.sleep(0.1)
 
     print(f"→ processed {processed} commits")
+
+    # compute net changes per file and tally by language
+    lang_tally = Counter()
+    lang_repo  = defaultdict(Counter)
+    for (repo, filename), changes in file_changes.items():
+        net = changes['adds'] - changes['dels']
+        if net > 0:
+            ext = ext_of(filename)
+            lang = EXT_TO_LANG[ext]
+            lang_tally[lang] += net
+            lang_repo[lang][repo] += net
+
+    # compute net for unknown extensions
+    ext_tally = Counter()
+    for (ext, repo, filename), changes in ext_file_changes.items():
+        net = changes['adds'] - changes['dels']
+        if net > 0:
+            ext_tally[ext] += net
 
     # debug unknown extensions (only show those with ≥500 lines)
     significant_exts = [(ext, cnt) for ext, cnt in ext_tally.most_common() if cnt >= MIN_LINES_THRESHOLD]

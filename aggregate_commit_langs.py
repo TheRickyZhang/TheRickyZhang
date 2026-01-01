@@ -112,8 +112,8 @@ def main():
     lang_repo  = defaultdict(Counter)
     ext_tally  = Counter()
 
+    processed = 0
     for repo, sha in commits:
-        print(f"Processing {repo}@{sha[:7]}…")
         r = requests.get(f'https://api.github.com/repos/{repo}/commits/{sha}',
                          headers={'Authorization': f'token {token}'})
         if r.status_code != 200:
@@ -134,16 +134,27 @@ def main():
                 lang_repo[lang][repo] += adds
             else:
                 ext_tally[ext] += adds
+        processed += 1
         time.sleep(0.1)
 
-    # debug unknown extensions
-    if ext_tally:
-        print("\n# Extensions not in GROUPS:")
-        for ext, cnt in ext_tally.most_common():
+    print(f"→ processed {processed} commits")
+
+    # debug unknown extensions (only show those with ≥500 lines)
+    significant_exts = [(ext, cnt) for ext, cnt in ext_tally.most_common() if cnt >= MIN_LINES_THRESHOLD]
+    if significant_exts:
+        print(f"\n# Extensions not in GROUPS (≥{MIN_LINES_THRESHOLD} lines):")
+        for ext, cnt in significant_exts:
             print(f"- .{ext}: {cnt:,} lines")
 
     total = sum(lang_tally.values()) or 1
     top10 = lang_tally.most_common(10)
+
+    # debug: top 3 repos per language (no exclusions)
+    print("\n# Top 3 repos per language:")
+    for lang, _ in top10:
+        top3 = lang_repo[lang].most_common(3)
+        repos_str = ", ".join(f"{r.split('/',1)[1]}({c:,})" for r, c in top3)
+        print(f"  {lang}: {repos_str}")
 
     # debug: Markdown table of largest repo per language
     print("\n# Largest repo contributor per language:")

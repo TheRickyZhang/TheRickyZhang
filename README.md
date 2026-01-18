@@ -14,14 +14,14 @@ Hi! I'm **Ricky Zhang**, and I currently attend the University of Florida as a C
 
 | Language    | Lines   | Percentage | Featured Repo |
 | ----------- | ------: | ---------: | ---- |
-| C/C++       | 258,447 |     63.48% | [BattleBeyz](https://github.com/TheRickyZhang/BattleBeyz), [CompetitiveProgramming](https://github.com/TheRickyZhang/CompetitiveProgramming) |
-| JS/TS       | 48,750 |     11.97% | [UF-SASE-Website](https://github.com/ufsasewebmaster/UF-SASE-Website) |
-| Java        | 21,967 |      5.40% | [EmberLang](https://github.com/TheRickyZhang/EmberLang) |
-| Astro       |  7,662 |      1.88% | [Astro-Portfolio-Workshop](https://github.com/TheRickyZhang/Astro-Portfolio-Workshop) |
-| Lua         |  4,184 |      1.03% | [Vimficiency](https://github.com/TheRickyZhang/Vimficiency) |
-| Python      |  2,909 |      0.71% | [SlidingTiles](https://github.com/TheRickyZhang/SlidingTiles) |
-| Shell       |  1,630 |      0.40% | [Bootstrap](https://github.com/TheRickyZhang/Bootstrap) |
-| Typst       |  1,312 |      0.32% | [CompetitiveProgramming](https://github.com/TheRickyZhang/CompetitiveProgramming) |
-| PowerShell  |    761 |      0.19% | [CompetitiveProgramming](https://github.com/TheRickyZhang/CompetitiveProgramming) |
+| C/C++       | 258,447 |     62.60% | [BattleBeyz](https://github.com/TheRickyZhang/BattleBeyz), [CompetitiveProgramming](https://github.com/TheRickyZhang/CompetitiveProgramming) |
+| JS/TS       | 48,956 |     11.86% | [UF-SASE-Website](https://github.com/ufsasewebmaster/UF-SASE-Website) |
+| Java        | 21,967 |      5.32% | [EmberLang](https://github.com/TheRickyZhang/EmberLang) |
+| Astro       |  7,662 |      1.86% | [Astro-Portfolio-Workshop](https://github.com/TheRickyZhang/Astro-Portfolio-Workshop) |
+| Lua         |  3,548 |      0.86% | [Vimficiency](https://github.com/TheRickyZhang/Vimficiency) |
+| Python      |  2,909 |      0.70% | [SlidingTiles](https://github.com/TheRickyZhang/SlidingTiles) |
+| Shell       |  1,637 |      0.40% | [Bootstrap](https://github.com/TheRickyZhang/Bootstrap) |
+| Typst       |  1,453 |      0.35% | [CompetitiveProgramming](https://github.com/TheRickyZhang/CompetitiveProgramming) |
+| PowerShell  |    761 |      0.18% | [CompetitiveProgramming](https://github.com/TheRickyZhang/CompetitiveProgramming) |
 | Swift       |    539 |      0.13% | [hackabull](https://github.com/AnthonyYao7/hackabull) |
 <!--END_COMMIT_LANG_STATS-->

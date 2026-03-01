@@ -14,13 +14,13 @@ Hi! I'm **Ricky Zhang**, and I currently attend the University of Florida as a C
 
 | Language    | Lines   | Percentage | Featured Repo |
 | ----------- | ------: | ---------: | ---- |
-| C/C++       | 258,447 |     59.31% | [BattleBeyz](https://github.com/TheRickyZhang/BattleBeyz), [CompetitiveProgramming](https://github.com/TheRickyZhang/CompetitiveProgramming) |
-| JS/TS       | 52,371 |     12.02% | [UF-SASE-Website](https://github.com/ufsasewebmaster/UF-SASE-Website) |
-| Java        | 21,967 |      5.04% | [EmberLang](https://github.com/TheRickyZhang/EmberLang) |
-| Astro       |  7,662 |      1.76% | [Astro-Portfolio-Workshop](https://github.com/TheRickyZhang/Astro-Portfolio-Workshop) |
-| Lua         |  3,986 |      0.91% | [Vimficiency](https://github.com/TheRickyZhang/Vimficiency) |
-| Python      |  2,831 |      0.65% | [SlidingTiles](https://github.com/TheRickyZhang/SlidingTiles) |
-| Shell       |  1,699 |      0.39% | [Bootstrap](https://github.com/TheRickyZhang/Bootstrap) |
+| C/C++       | 258,447 |     58.83% | [BattleBeyz](https://github.com/TheRickyZhang/BattleBeyz), [CompetitiveProgramming](https://github.com/TheRickyZhang/CompetitiveProgramming) |
+| JS/TS       | 53,009 |     12.07% | [UF-SASE-Website](https://github.com/ufsasewebmaster/UF-SASE-Website) |
+| Java        | 21,967 |      5.00% | [EmberLang](https://github.com/TheRickyZhang/EmberLang) |
+| Astro       |  7,662 |      1.74% | [Astro-Portfolio-Workshop](https://github.com/TheRickyZhang/Astro-Portfolio-Workshop) |
+| Lua         |  4,266 |      0.97% | [Vimficiency](https://github.com/TheRickyZhang/Vimficiency) |
+| Python      |  2,831 |      0.64% | [SlidingTiles](https://github.com/TheRickyZhang/SlidingTiles) |
+| Shell       |  1,788 |      0.41% | [Bootstrap](https://github.com/TheRickyZhang/Bootstrap) |
 | Typst       |  1,310 |      0.30% | [CompetitiveProgramming](https://github.com/TheRickyZhang/CompetitiveProgramming) |
 | PowerShell  |    761 |      0.17% | [CompetitiveProgramming](https://github.com/TheRickyZhang/CompetitiveProgramming) |
 | Swift       |    539 |      0.12% | [hackabull](https://github.com/AnthonyYao7/hackabull) |

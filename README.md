@@ -14,10 +14,10 @@ Hi! I'm **Ricky Zhang**, and I currently attend the University of Florida as a C
 
 | Language    | Lines   | Percentage | Featured Repo |
 | ----------- | ------: | ---------: | ---- |
-| C/C++       | 316,141 |     57.96% | [BattleBeyz](https://github.com/TheRickyZhang/BattleBeyz), [CompetitiveProgramming](https://github.com/TheRickyZhang/CompetitiveProgramming) |
-| JS/TS       | 57,745 |     10.59% | [UF-SASE-Website](https://github.com/ufsasewebmaster/UF-SASE-Website) |
+| C/C++       | 316,141 |     57.89% | [BattleBeyz](https://github.com/TheRickyZhang/BattleBeyz), [CompetitiveProgramming](https://github.com/TheRickyZhang/CompetitiveProgramming) |
+| JS/TS       | 57,745 |     10.57% | [UF-SASE-Website](https://github.com/ufsasewebmaster/UF-SASE-Website) |
 | Lua         | 23,303 |      4.27% | [Vimficiency](https://github.com/TheRickyZhang/Vimficiency) |
-| Java        | 22,086 |      4.05% | [EmberLang](https://github.com/TheRickyZhang/EmberLang) |
+| Java        | 22,086 |      4.04% | [EmberLang](https://github.com/TheRickyZhang/EmberLang) |
 | Astro       |  7,662 |      1.40% | [Astro-Portfolio-Workshop](https://github.com/TheRickyZhang/Astro-Portfolio-Workshop) |
 | Python      |  3,765 |      0.69% | [SlidingTiles](https://github.com/TheRickyZhang/SlidingTiles) |
 | Shell       |  2,695 |      0.49% | [Vimficiency](https://github.com/TheRickyZhang/Vimficiency) |

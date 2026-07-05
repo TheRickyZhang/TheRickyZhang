@@ -14,7 +14,7 @@ Hi! I'm **Ricky Zhang**, and I currently attend the University of Florida as a C
 
 | Language    | Lines   | Percentage | Featured Repo |
 | ----------- | ------: | ---------: | ---- |
-| C/C++       | 315,945 |     59.36% | [BattleBeyz](https://github.com/TheRickyZhang/BattleBeyz), [CompetitiveProgramming](https://github.com/TheRickyZhang/CompetitiveProgramming) |
+| C/C++       | 316,141 |     59.37% | [BattleBeyz](https://github.com/TheRickyZhang/BattleBeyz), [CompetitiveProgramming](https://github.com/TheRickyZhang/CompetitiveProgramming) |
 | JS/TS       | 57,756 |     10.85% | [UF-SASE-Website](https://github.com/ufsasewebmaster/UF-SASE-Website) |
 | Lua         | 23,360 |      4.39% | [Vimficiency](https://github.com/TheRickyZhang/Vimficiency) |
 | Java        | 22,086 |      4.15% | [EmberLang](https://github.com/TheRickyZhang/EmberLang) |

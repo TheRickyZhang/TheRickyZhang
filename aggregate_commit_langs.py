@@ -234,8 +234,19 @@ def main():
 
     # inject into README.md
     readme = open("README.md","r",encoding="utf-8").read()
+
+    # only rewrite if a percentage moved by ≥0.01, avoiding no-op commits from line-count churn
+    marker_re = r'<!--START_COMMIT_LANG_STATS-->.*<!--END_COMMIT_LANG_STATS-->'
+    m = re.search(marker_re, readme, flags=re.DOTALL)
+    old_pcts = [float(x) for x in re.findall(r'(\d+\.\d+)%', m.group(0))] if m else []
+    new_pcts = [float(x) for x in re.findall(r'(\d+\.\d+)%', new_section)]
+    changed = len(old_pcts) != len(new_pcts) or any(abs(a - b) >= 0.01 for a, b in zip(old_pcts, new_pcts))
+    if not changed:
+        print("\nNo percentage changed by ≥0.01%; leaving README.md untouched.")
+        return
+
     patched = re.sub(
-        r'<!--START_COMMIT_LANG_STATS-->.*<!--END_COMMIT_LANG_STATS-->',
+        marker_re,
         f'<!--START_COMMIT_LANG_STATS-->\n{new_section}\n<!--END_COMMIT_LANG_STATS-->',
         readme, flags=re.DOTALL
     )

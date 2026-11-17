@@ -36,8 +36,8 @@ EXT_TO_LANG = {ext: lang for lang, exts in GROUPS.items() for ext in exts}
 
 # ───── SPECIAL CPP REPO ORDER ─────
 CUSTOM_CPP_REPOS = [
+    ('TheRickyZhang/vimficiency', 'vimficiency'),
     ('TheRickyZhang/BattleBeyz', 'BattleBeyz'),
-    ('TheRickyZhang/CompetitiveProgramming', 'CompetitiveProgramming'),
 ]
 
 # ───── CACHE HELPERS ─────

@@ -186,7 +186,7 @@ def main():
         # Hardcode certain repos to ensure they are displayed (may not necessarily have most, but most in-depth use)
         if lang == 'C/C++':
             cpp_total = sum(lang_repo['C/C++'].get(repo, 0) for repo, _ in CUSTOM_CPP_REPOS)
-            pct = cpp_total / total * 100
+            pct = cnt / total * 100
             links = []
             for full_repo, name in CUSTOM_CPP_REPOS:
                 c = lang_repo['C/C++'].get(full_repo, 0)
@@ -211,15 +211,14 @@ def main():
     processed_langs = set()
     for lang, cnt in top10:
         if lang == 'C/C++':
-            cpp_total = sum(lang_repo['C/C++'].get(repo, 0) for repo, _ in CUSTOM_CPP_REPOS)
-            pct = cpp_total / total * 100
+            pct = cnt / total * 100
             links = []
             for full_repo, name in CUSTOM_CPP_REPOS:
                 c = lang_repo['C/C++'].get(full_repo, 0)
                 if c > MIN_LINES_THRESHOLD:
                     links.append(f"[{name}](https://github.com/{full_repo})")
             repo_cell = ', '.join(links)
-            output.append(f"| C/C++       | {cpp_total:>6,} | {pct:>9.2f}% | {repo_cell} |")
+            output.append(f"| C/C++       | {cnt:>6,} | {pct:>9.2f}% | {repo_cell} |")
             processed_langs.add('C/C++')
         elif lang not in processed_langs:
             if lang == 'JS/TS':
